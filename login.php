@@ -1,8 +1,6 @@
 <?php
-
-include('connection.php');
-
 session_start();
+include('connection.php');
 
 if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
