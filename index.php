@@ -30,21 +30,13 @@ include('connection.php');
     <div class="container">
         <h2 class="menu-title">>Today's Menu</h2>
         <?php if (isset($_SESSION['user_name']))  echo '<h4>>>Welcome '.$_SESSION["user_name"].'</h4>' ?>
+        <?php
+        include('./partials/search_form.php');
+        ?>
         <div class="order-note">
                  <p>*Note: Orders placed cannot be cancelled after 5 minutes</p>
             </div>
         <div class="menu">
-            <div class="menu-item">
-                <div class="menu-item-img">
-                    <img src="images/food.jpg" alt="food1">
-                </div>
-                <div class="menu-item-details">
-                    <h3>Chicken Burger</h3>
-                    <p>Thiis a food made by cooking chicken</p>
-                    <h4>Rs 100</h4>
-                    <a href="#" class="btn">Order now</a>
-                </div>
-            </div>
             <div class="menu-item">
                 <div class="menu-item-img">
                     <img src="images/food.jpg" alt="food1">

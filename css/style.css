@@ -10,7 +10,7 @@
 	--bg-color: white;
 	--text-color: #000;
 	--main-color: rgb(62, 248, 37);
-	--imp-text:rgb(54, 8, 104);
+	--imp-text:black;
 }
 body{
 	min-height: 100vh;
@@ -216,7 +216,7 @@ img{
 	font-size: 1.5rem;
 	font-weight: 500;
 	color: var(--imp-text);
-	margin-bottom: 20px;
+	
 }
 @media screen and (max-width: 1280px){
 	.container{
@@ -288,3 +288,57 @@ table {
 	  text-align: center;
 	  margin-bottom: 50px;
   }
+
+
+  /* css for search form */
+.search {
+	display: flex;
+  }
+  
+.searchTerm {
+	width: 80%;
+	border: 1px solid var(--main-color);
+	border-right: none;
+	padding: 5px;
+	height: 32px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+	color: var(--main-color);
+  }
+  
+  .searchButton {
+	width: 20%;
+	height: 32px;
+	padding-top: 3px;
+   border:none;
+	background: var(--main-color);
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	font-size: 20px;
+	border-radius: 0 5px 5px 0;
+  }
+  
+  .wrap{
+	width: 80%;
+    margin: 10px 0 10px 0;
+  }
+
+  .no-menu{
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	  height: 50vh;
+	  line-height: 30px;
+  }
+  .no-menu img{
+	  width: 100px;
+	  height: 100px;
+	  margin-bottom: 20px;
+  }
+  /* css for search end here's */

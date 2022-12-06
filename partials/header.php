@@ -10,7 +10,7 @@
         <?php if (isset($_SESSION['user_name']) && $_SESSION['loggedin'] == true) { ?>
             <a href="logout.php" class="btn">-->Logout</a>
         <?php } else { ?>
-            <a href="./login.php" class="user"><i class="ri-user-fill"></i>Sign In</a>
+            <a href="./login.php" class="user">Sign In</a>
             <a href="./register.php">Register</a>
         <?php } ?>
      <div class="bx bx-menu" id="menu-icon">
