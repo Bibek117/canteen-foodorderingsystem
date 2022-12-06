@@ -1,0 +1,290 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+	list-style-type: none;
+}
+:root{
+	--bg-color: white;
+	--text-color: #000;
+	--main-color: rgb(62, 248, 37);
+	--imp-text:rgb(54, 8, 104);
+}
+body{
+	min-height: 100vh;
+	background: white;
+	color: var(--text-color);
+	
+}
+
+/* header css */
+header{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #ffffff;
+box-shadow:  8px 8px 11px #c9c9c9,
+             -8px -8px 11px #ffffff;
+	padding: 28px 12%;
+	transition: all .50s ease;
+}
+.logo{
+	display: flex;
+	align-items: center;
+}
+.logo i{
+	color: var(--main-color);
+	font-size: 28px;
+	margin-right: 3px;
+}
+.logo span{
+	color: var(--text-color);
+	font-size: 1.7rem;
+	font-weight: 600;
+}
+.navbar{
+	display: flex;
+}
+.navbar a{
+	color: var(--text-color);
+	font-size: 1.1rem;
+	font-weight: 500;
+	padding: 5px 0;
+	margin: 0px 30px;
+	transition: all .50s ease;
+}
+.navbar a:hover{
+	color: var(--main-color);
+}
+.navbar a.active{
+	color: var(--main-color);
+}
+.main{
+	display: flex;
+	align-items: center;
+}
+.main a{
+	margin-right: 25px;
+	margin-left: 10px;
+	color: var(--text-color);
+	font-size: 1.1rem;
+	font-weight: 500;
+	transition: all .50s ease;
+}
+.user{
+	display: flex;
+	align-items: center;
+}
+.user i{
+	color: var(--main-color);
+	font-size: 28px;
+	margin-right: 7px;
+}
+.main a:hover{
+	color: var(--main-color);
+}
+#menu-icon{
+	font-size: 35px;
+	color: var(--text-color);
+	cursor: pointer;
+	z-index: 10001;
+	display: none;
+}
+
+
+@media (max-width: 1280px){
+	header{
+		padding: 14px 2%;
+		transition: .2s;
+	}
+	.navbar a{
+		padding: 5px 0;
+		margin: 0px 20px;
+	}
+}
+
+@media (max-width: 1090px){
+	#menu-icon{
+		display: block;
+	}
+	.navbar{
+		position: absolute;
+		top: 100%;
+		right: -100%;
+		width: 270px;
+		height: 20vh;
+		background: #38393d;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		transition: all .50s ease;
+	}
+	.navbar a{
+		display: block;
+		margin: 12px 0;
+		color:white;
+		padding: 0px 25px;
+		transition: all .50s ease;
+	}
+	.navbar a:hover{
+		color: var(--text-color);
+		transform: translateY(5px);
+	}
+	.navbar a.active{
+		color: var(--main-color);
+	}
+	.navbar.open{
+		right: 2%;
+	}
+}
+
+/* header css ends */
+
+.container{
+	margin-top: 110px;
+	padding:0 183px 0 183px;
+
+}
+
+
+/* css for food card */
+.menu{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.menu-item{
+	width: 30%;
+	margin-bottom: 30px;
+}
+.menu-item-img{
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+.menu-item-details{
+	padding: 10px;
+	background: #ffffff;
+box-shadow:  8px 8px 11px #c9c9c9,
+			 -8px -8px 11px #ffffff;
+}
+.btn{
+	display: inline-block;
+	padding: 10px 20px;
+	background: var(--main-color);
+	color: var(--text-color);
+	font-size: 1.1rem;
+	font-weight: 500;
+	border-radius: 5px;
+	transition: all .50s ease;
+}
+.btn:hover{
+	background: #000;
+	color: #fff;
+}
+.menu-item-details h3{
+	font-size: 1.3rem;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.menu-item-details p{
+	font-size: 1.1rem;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+.menu-item-details span{
+	font-size: 1.1rem;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+.menu-item-details .btn{
+	margin-top: 10px;
+}
+.menu-title{
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--imp-text);
+	margin-bottom: 20px;
+}
+@media screen and (max-width: 1280px){
+	.container{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.menu-item{
+		width: 45%;
+	}
+}
+	
+/* css for food card ends */
+
+/* css for footer */
+footer{
+	 padding-top: 40px;
+    font-size: 1.2rem;
+    height: 200px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative;
+	bottom: 0;
+ }
+ footer span{
+	 color: red;
+ }
+/* css for footer ends */
+
+/* css for cart */
+.no-order{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 50vh;
+	line-height: 30px;
+}
+.order-note{
+	color:red;
+	margin-bottom: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 50px 0 50px 0;
+  }
+  
+  th{
+	  background-color: #000;
+	  color: #fff;
+	  padding: 10px;
+  }
+  th, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+  }
+  .total{
+	  font-size: 1.1rem;
+	  font-weight: 500;
+	  color: black;
+	  background-color: #a29bfe;
+	  padding: 10px;
+	  border-radius: 5px;
+	  width: 100%;
+	  text-align: center;
+	  margin-bottom: 50px;
+  }
