@@ -1,5 +1,5 @@
 <header>
-    <a href="/" class="logo"><span>Canteen</span></a>
+    <a href="index.php" class="logo"><span>Canteen</span></a>
 
     <ul class="navbar">
         <li><a <?php if ($_SERVER['SCRIPT_NAME'] == "/canteen-foodorderingsystem/index.php") { ?> class="active" <?php   }  ?> href="./index.php">Home</a></li>
