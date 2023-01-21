@@ -17,10 +17,11 @@
 
 /*********** admin dashboard styling **********/
   .card{
-      background-color: rgb(20, 220, 33);
+      background-color: rgb(71, 224, 89);
       padding:20px;
       margin: 10px;
       border-radius: 10px;
+      color:black!important;
       box-shadow: 8px 5px 5px #3B3131;
   }
 
@@ -34,7 +35,7 @@
       z-index: 1; /* Stay on top */
       top: 0;
       left: 0;
-      background-color: rgb(20, 220, 33); /* Black*/
+      background-color: rgb(153, 20, 220); /* Black*/
       overflow-x: hidden; /* Disable horizontal scroll */
       padding-top: 60px; /* Place content 60px from the top */
       transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */

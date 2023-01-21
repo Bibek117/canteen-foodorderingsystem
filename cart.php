@@ -1,5 +1,10 @@
 <?php
 session_start();
+require_once('./connection.php');
+if (!(isset($_SESSION['user_name']) && isset($_SESSION['loggedin']))) {
+    header('location:./login.php');
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +42,7 @@ session_start();
         </div> -->
         <div class="orders">
             <div class="order-note">
-                <p>*Note: Orders placed cannot be cancelled after 5 minutes</p>
+                <p>*Note: Orders placed cannot be cancelled</p>
             </div>
             <div class="orders-table">
                 <table>
@@ -47,45 +52,43 @@ session_start();
                         <th>Quantity</th>
                         <th>Price per</th>
                         <th>Order status</th>
-                        <th>Delete</th>
+                        <th>Payment</th>
                     </tr>
                     <!-- order status -ready -preparing -received and paid -->
-                    <tr>
-                        <td>1</td>
-                        <td>Somasa</td>
-                        <td>2</td>
-                        <td>Rs 25</td>
-                        <td>Ready</td>
-                        <td><i class="ri-delete-bin-2-line"></i></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Somasa</td>
-                        <td>2</td>
-                        <td>Rs 25</td>
-                        <td>Preparing</td>
-                        <td><i class="ri-delete-bin-2-line"></i></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Somasa</td>
-                        <td>2</td>
-                        <td>Rs 25</td>
-                        <td>Received and paid</td>
-                        <td><i class="ri-delete-bin-2-line"></i></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Somasa</td>
-                        <td>2</td>
-                        <td>Rs 25</td>
-                        <td>Ready</td>
-                        <td><i class="ri-delete-bin-2-line"></i></td>
-                    </tr>
+                    <?php
+                    $total_price = 0;
+                     $sql = "SELECT * FROM orders WHERE user_id = {$_SESSION['user_id']} && payment_status = 0";
+                    $result = mysqli_query($conn, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $sqlq = "SELECT * FROM food_items WHERE food_id = {$row['food_id']}";
+                            $resultq = mysqli_query($conn, $sqlq);
+                            $rowq = mysqli_fetch_assoc($resultq);
+                            $food_name = $rowq['food_name'];
+                            $food_price = $rowq['food_price'];
+                            $total_price += ($food_price * $row['quantity']);
+                            ?>
+                            <tr>
+                                <td><?php echo $row['order_id'] ?></td>
+                                <td><?php echo $food_name ?></td>
+                                <td><?php echo $row['quantity'] ?></td>
+                                <td><?php echo $food_price ?></td>
+                                <td><?php 
+                                if($row['order_status'] == 0){echo "Preparing" ; }elseif($row['order_status'] == 1){ echo "Ready";} ?>
+                                </td>
+                                <td><?php 
+                                if($row['payment_status'] == 0){echo "Pending" ; }elseif($row['payment_status'] == 1){ echo "Served and paid";} ?>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    }
+
+                    ?>
                 </table>
             </div>
             <div class="total">
-                <h2>Total to be paid: <span style="color:red"> Rs 100</span></h2>
+                <h2>Total to be paid: <span style="color:red"> Rs <?php echo $total_price ?></span></h2>
             </div>
         </div>
     </div>

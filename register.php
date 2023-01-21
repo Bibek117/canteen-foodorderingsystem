@@ -39,6 +39,7 @@ if (isset($_POST['submit'])) {
             if($result){
                 $_SESSION['success'] = 'Student registered successfully!';
                  header('location:login.php');
+                 die();
             }    
         }else {
             $errors[] = 'something went wrong!';
@@ -70,6 +71,9 @@ if (isset($_POST['submit'])) {
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" method="post">
             <h3>canteen registration form</h3>
+            <div class="back_link">
+                  <a href="./index.php">Go back to main-site</a>
+            </div>
             <?php
             if (isset($errors)) {
                 foreach ($errors as $error) {

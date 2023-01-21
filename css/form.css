@@ -89,3 +89,8 @@
     font-size: 20px;
     padding:10px;
  }
+ .back_link a{
+   font-size: 0.8rem;
+   color:red;
+ }
+

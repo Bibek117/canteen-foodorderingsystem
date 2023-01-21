@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
 
             $_SESSION['user_name'] = $row['name'];
             $_SESSION['loggedin'] = true;
+            $_SESSION['user_id'] = $row['user_id'];
             header('location:index.php');
         }
     } else {
@@ -51,6 +52,10 @@ if (isset($_POST['submit'])) {
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <h3>Canteen login</h3>
+            <div class="back_link">
+                  <a href="./index.php">Go back to main-site</a>
+            </div>
+          
 
             <?php
             if (isset($error)) {

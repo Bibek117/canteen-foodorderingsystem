@@ -19,16 +19,16 @@
             if(!isset($_SESSION['admin_name'])){
                 header('location:../login.php');
              }
-             
         ?>
+         
 
     <div id="main-content" class="container allContent-section py-4">
         <div class="row">
             <div class="col-sm-3">
                 <div class="card">
                     <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total Users</h4>
-                    <h5 style="color:white;">
+                    <h4>Total Students</h4>
+                    <h5>
                     <?php
                         $sql="SELECT * from users where user_type='user'";
                         $result=$conn-> query($sql);
@@ -46,11 +46,11 @@
             <div class="col-sm-3">
             <div class="card">
                     <i class="fa fa-th mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total Products</h4>
-                    <h5 style="color:white;">
+                    <h4>Total Food items</h4>
+                    <h5>
                     <?php
                        
-                       $sql="SELECT * from product";
+                       $sql="SELECT * from food_items";
                        $result=$conn-> query($sql);
                        $count=0;
                        if ($result-> num_rows > 0){
@@ -67,8 +67,11 @@
             <div class="col-sm-3">
                 <div class="card">
                     <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total orders</h4>
-                    <h5 style="color:white;">
+                    <h4 >Total orders
+                    <?php
+        ?> 
+                    </h4>
+                    <h5>
                     <?php
                        
                        $sql="SELECT * from orders";
@@ -89,24 +92,12 @@
         
     </div>
        
-            
-        <?php
-            if (isset($_GET['category']) && $_GET['category'] == "success") {
+          
+         <?php
+            if (isset($_SESSION['success'])) {
                 echo '<script> alert("Category Successfully Added")</script>';
-            }else if (isset($_GET['category']) && $_GET['category'] == "error") {
-                echo '<script> alert("Adding Unsuccess")</script>';
             }
-            if (isset($_GET['size']) && $_GET['size'] == "success") {
-                echo '<script> alert("Size Successfully Added")</script>';
-            }else if (isset($_GET['size']) && $_GET['size'] == "error") {
-                echo '<script> alert("Adding Unsuccess")</script>';
-            }
-            if (isset($_GET['variation']) && $_GET['variation'] == "success") {
-                echo '<script> alert("Variation Successfully Added")</script>';
-            }else if (isset($_GET['variation']) && $_GET['variation'] == "error") {
-                echo '<script> alert("Adding Unsuccess")</script>';
-            }
-        ?>
+        ?> 
 
 
     <script type="text/javascript" src="./assets/js/ajaxWork.js"></script>    

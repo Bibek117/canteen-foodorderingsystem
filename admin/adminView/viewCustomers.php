@@ -1,5 +1,5 @@
 <div>
-  <h2>All Customers</h2>
+  <h2>All Students</h2>
   <table class="table ">
     <thead>
       <tr>
@@ -15,13 +15,12 @@
     include_once "../../connection.php";
     $sql = "SELECT * from users where user_type='user'";
     $result = $conn->query($sql);
-    $count = 1;
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
 
     ?>
         <tr>
-          <td><?= $row['id']?></td>
+          <td><?= $row['user_id']?></td>
           <td><?= $row["name"] ?></td>
           <td><?= $row["email"] ?></td>
           <td><?= $row["faculty"] ?></td>
@@ -29,7 +28,6 @@
           <td><img height='100px' src='../profile-uploads/<?= $row["photo"] ?>'></td>
         </tr>
     <?php
-        $count = $count + 1;
       }
     }
     ?>

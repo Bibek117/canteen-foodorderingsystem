@@ -53,7 +53,6 @@ function addItems(){
     var p_name=$('#p_name').val();
     var p_desc=$('#p_desc').val();
     var p_price=$('#p_price').val();
-    var category=$('#category').val();
     var upload=$('#upload').val();
     var file=$('#file')[0].files[0];
 
@@ -61,7 +60,6 @@ function addItems(){
     fd.append('p_name', p_name);
     fd.append('p_desc', p_desc);
     fd.append('p_price', p_price);
-    fd.append('category', category);
     fd.append('file', file);
     fd.append('upload', upload);
     $.ajax({
@@ -71,7 +69,9 @@ function addItems(){
         processData: false,
         contentType: false,
         success: function(data){
-            alert('Product Added successfully.');
+            if(data.error){
+                alert(data.message)
+            }
             $('form').trigger('reset');
             showProductItems();
         }
@@ -96,7 +96,6 @@ function updateItems(){
     var p_name = $('#p_name').val();
     var p_desc = $('#p_desc').val();
     var p_price = $('#p_price').val();
-    var category = $('#category').val();
     var existingImage = $('#existingImage').val();
     var newImage = $('#newImage')[0].files[0];
     var fd = new FormData();
@@ -104,7 +103,6 @@ function updateItems(){
     fd.append('p_name', p_name);
     fd.append('p_desc', p_desc);
     fd.append('p_price', p_price);
-    fd.append('category', category);
     fd.append('existingImage', existingImage);
     fd.append('newImage', newImage);
    

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "canteen-orderingsystem";
+$dbname = "canteen-foodsystem";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);

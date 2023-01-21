@@ -158,7 +158,7 @@ box-shadow:  8px 8px 11px #c9c9c9,
 .menu{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 .menu-item{
 	width: 30%;
@@ -176,9 +176,9 @@ box-shadow:  8px 8px 11px #c9c9c9,
 			 -8px -8px 11px #ffffff;
 }
 .btn{
-	display: inline-block;
 	padding: 10px 20px;
 	background: var(--main-color);
+	border: none;
 	color: var(--text-color);
 	font-size: 1.1rem;
 	font-weight: 500;
@@ -307,7 +307,7 @@ table {
   }
   
   .searchTerm:focus{
-	color: var(--main-color);
+	color: black;
   }
   
   .searchButton {
@@ -342,3 +342,76 @@ table {
 	  margin-bottom: 20px;
   }
   /* css for search end here's */
+
+
+  /* css form form popup */
+  
+  /* Add styles to the form container */
+  .form-contain {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+  }
+  
+  
+  /* Set a style for the submit/login button */
+  .form-contain .btn {
+	background-color: #2ac42c;
+	color: black;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom:10px;
+	opacity: 0.8;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-contain .btn:hover, .open-button:hover {
+	opacity: 1;
+  }
+
+  .counter {
+    width: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter input {
+    width: 50px;
+    border: 0;
+    line-height: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: #43e941;
+    color: black;
+    appearance: none;
+    outline: 0;
+}
+.counter span {
+    display: block;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #000000;
+    user-select: none;
+}
+
+.success-msg{
+    margin:10px 0;
+    background: rgb(20, 220, 33);
+    color:#fff;
+    border-radius: 5px;
+    font-size: 20px;
+    padding:10px;
+ }
+
+ .fail-msg{
+	margin:10px 0;
+    background: rgb(67, 220, 20);
+    color:rgb(244, 0, 0);
+    border-radius: 5px;
+    font-size: 20px;
+    padding:10px;
+ }
