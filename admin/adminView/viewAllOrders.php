@@ -7,10 +7,9 @@
         <th>Customer</th>
         <th>Contact</th>
         <th>OrderDate</th>
-        <th>Payment Method</th>
+        <th>Quantity</th>
         <th>Order Status</th>
         <th>Payment Status</th>
-        <th>More Details</th>
       </tr>
     </thead>
     <?php
@@ -25,8 +24,9 @@
           <td><?= $row["order_id"] ?></td>
           <td><?= $row["delivered_to"] ?></td>
           <td><?= $row["phone_no"] ?></td>
-          <td><?= $row["order_date"] ?></td>
-          <td><?= $row["pay_method"] ?></td>
+          
+          <td><?= $row["ordered_time"] ?></td>
+          <td><?= $row["quantity"] ?></td>
           <?php
           if ($row["order_status"] == 0) {
 
@@ -40,19 +40,17 @@
 
           <?php
           }
-          if ($row["pay_status"] == 0) {
+          if ($row["payment_status"] == 0) {
           ?>
             <td><button class="btn btn-danger" onclick="ChangePay('<?= $row['order_id'] ?>')">Unpaid</button></td>
           <?php
 
-          } else if ($row["pay_status"] == 1) {
+          } else if ($row["payment_status"] == 1) {
           ?>
             <td><button class="btn btn-success" onclick="ChangePay('<?= $row['order_id'] ?>')">Paid </button></td>
           <?php
           }
           ?>
-
-          <td><a class="btn btn-primary openPopup" data-href="./adminView/viewEachOrder.php?orderID=<?= $row['order_id'] ?>" href="javascript:void(0);">View</a></td>
         </tr>
     <?php
 

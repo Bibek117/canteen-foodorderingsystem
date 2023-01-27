@@ -1,39 +1,41 @@
 <?php
- include_once "../../connection.php";
-        if (isset($_POST['submit'])) {
+session_start();
+include_once "../../connection.php";
 
-          $food_name = mysqli_real_escape_string($conn, $_POST['food_name']);
-          $food_desc = mysqli_real_escape_string($conn, $_POST['food_desc']);
-          $food_price = mysqli_real_escape_string($conn, $_POST['food_price']);
-          if (isset($_FILES['file'])) {
-            $filename = $_FILES['file']['name'];
-            $filetype = $_FILES['file']['type'];
-            $filetemp = $_FILES['file']['tmp_name'];
-            if (
-              $filetype != "jpg" && $filetype != "png" && $filetype != "jpeg"
-              && $filetype != "gif"
-            ) {
-              $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            }
-          }
-          if (move_uploaded_file($filetemp, "../../images/" . $filename)) {
-            $insert = "INSERT INTO food_items (food_name, food_desc, food_price,food_image) VALUES ('$food_name', '$food_desc', '$food_price', '$filename')";
-            $result = mysqli_query($conn, $insert);
-            if ($result) {
-              $_SESSION['success'] = 'Food added successfully!';
-              header('location:../index.php');
-            }
-          } else {
-            $errors[] = 'something went wrong!';
-          }
-        };
+if (isset($_POST['submit'])) {
+
+  $food_name = mysqli_real_escape_string($conn, $_POST['food_name']);
+  $food_desc = mysqli_real_escape_string($conn, $_POST['food_desc']);
+  $food_price = mysqli_real_escape_string($conn, $_POST['food_price']);
+  if (isset($_FILES['file'])) {
+    $filename = $_FILES['file']['name'];
+    $filetype = $_FILES['file']['type'];
+    $filetemp = $_FILES['file']['tmp_name'];
+    if (
+      $filetype != "jpg" && $filetype != "png" && $filetype != "jpeg"
+      && $filetype != "gif"
+    ) {
+      $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    }
+  }
+  if (move_uploaded_file($filetemp, "../../images/" . $filename)) {
+    $insert = "INSERT INTO food_items (food_name, food_desc, food_price,food_image) VALUES ('$food_name', '$food_desc', '$food_price', '$filename')";
+    $result = mysqli_query($conn, $insert);
+    if ($result) {
+      $_SESSION['success'] = 'Food added successfully!';
+      header('location:../index.php');
+    }
+  } else {
+    $errors[] = 'something went wrong!';
+  }
+};
 
 
-        ?>
+?>
 <div>
   <h2>Food Items</h2>
-   <!-- Trigger the modal with a button -->
-   <button type="button" class="btn btn-secondary " style="height:40px" data-toggle="modal" data-target="#myModal">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-primary mb-3" style="height:40px" data-toggle="modal" data-target="#myModal">
     Add Food item
   </button>
   <table class="table ">
@@ -61,10 +63,12 @@
           <td><?= $row["food_desc"] ?></td>
           <td><?= $row["food_price"] ?></td>
           <td><button class="btn btn-primary" style="height:40px" onclick="itemEditForm('<?= $row['food_id'] ?>')">Edit</button></td>
-          <td><form action="./adminView/delete.php" method="post">
-    <input type="hidden" name="id" value="<?php echo $row['food_id']; ?>">
-    <button class="btn btn-danger" style="height:40px" type="submit" name="delete" >Delete</button>
-</form></td>
+          <td>
+            <form action="./adminView/delete.php" method="post">
+              <input type="hidden" name="id" value="<?php echo $row['food_id']; ?>">
+              <button class="btn btn-danger" style="height:40px" type="submit" name="delete">Delete</button>
+            </form>
+          </td>
         </tr>
     <?php
         $count = $count + 1;
@@ -73,7 +77,7 @@
     ?>
   </table>
 
- 
+
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">

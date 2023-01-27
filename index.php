@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order_submit'])) {
                             <!-- <button class="btn orderNow">Order now</button> -->
                             <?php if (isset($_SESSION['user_name']) && $_SESSION['loggedin'] == true) { ?>
                                 <div class="myForm">
-                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-contain"  onsubmit="return confirm('Are you sure you want to submit this form?');" method="POST">
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-contain"  onsubmit="return confirm('Are you sure you want to place this order?');" method="POST">
                                         <div class="counter">
                                             <span class="down" onClick='decreaseCount(event, this)'>-</span>
                                             <input type="text" value="1" name="quantity">

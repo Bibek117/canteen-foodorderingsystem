@@ -6,11 +6,11 @@
     $p_desc= $_POST['p_desc'];
     $p_price= $_POST['p_price'];
 
-    if( isset($_FILES['newImage']) ){
+    if( isset($_FILES['file']) ){
         
         $location="./uploads/";
-        $img = $_FILES['newImage']['name'];
-        $tmp = $_FILES['newImage']['tmp_name'];
+        $img = $_FILES['file']['name'];
+        $tmp = $_FILES['file']['tmp_name'];
         $dir = '../uploads/';
         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif','webp');

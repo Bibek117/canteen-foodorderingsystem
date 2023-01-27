@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once "../connection.php";
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +19,6 @@
         <?php
             include "./adminHeader.php";
             include "./sidebar.php";
-           
-            include_once "../connection.php";
             if(!isset($_SESSION['admin_name'])){
                 header('location:../login.php');
              }
@@ -23,8 +26,18 @@
          
 
     <div id="main-content" class="container allContent-section py-4">
+            <?php
+          if (isset($_SESSION['success'])) {
+            echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+            unset($_SESSION['success']);
+        };
+        if (isset($_SESSION['success'])) {
+            echo '<div class="alert alert-danger">' . $_SESSION['fail'] . '</div>';
+            unset($_SESSION['fail']);
+        };
+        ?>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="card">
                     <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
                     <h4>Total Students</h4>
@@ -43,7 +56,7 @@
                     ?></h5>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
             <div class="card">
                     <i class="fa fa-th mb-2" style="font-size: 70px;"></i>
                     <h4>Total Food items</h4>
@@ -64,7 +77,7 @@
                    </h5>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="card">
                     <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
                     <h4 >Total orders
@@ -91,14 +104,6 @@
         </div>
         
     </div>
-       
-          
-         <?php
-            if (isset($_SESSION['success'])) {
-                echo '<script> alert("Category Successfully Added")</script>';
-            }
-        ?> 
-
 
     <script type="text/javascript" src="./assets/js/ajaxWork.js"></script>    
     <script type="text/javascript" src="./assets/js/script.js"></script>
