@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
           <td><?= $row["food_price"] ?></td>
           <td><button class="btn btn-primary" style="height:40px" onclick="itemEditForm('<?= $row['food_id'] ?>')">Edit</button></td>
           <td>
-            <form action="./adminView/delete.php" method="post">
+            <form action="./admin_php/delete.php" method="post">
               <input type="hidden" name="id" value="<?php echo $row['food_id']; ?>">
               <button class="btn btn-danger" style="height:40px" type="submit" name="delete">Delete</button>
             </form>

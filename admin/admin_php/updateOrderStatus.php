@@ -1,6 +1,6 @@
 <?php
 
-    include_once "../connection.php";
+    include_once "../../connection.php";
    
     $order_id=$_POST['record'];
     //echo $order_id;
@@ -20,10 +20,3 @@
     }
     
         
- 
-    // if($update){
-    //     echo"success";
-    // }
-    // else{
-    //     echo"error";
-    // }

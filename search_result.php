@@ -63,7 +63,7 @@ include('connection.php');
                                 <form action="./index.php" class="form-contain"  onsubmit="return confirm('Are you sure you want to place this order?');" method="POST">
                                     <div class="counter">
                                         <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                                        <input type="text" value="1" name="quantity">
+                                        <input type="number" value="1" max="20" name="quantity">
                                         <span class="up" onClick='increaseCount(event, this)'>+</span>
                                     </div>
                                     <input type="hidden" name="food_id" value="<?php echo $row['food_id']; ?>">
