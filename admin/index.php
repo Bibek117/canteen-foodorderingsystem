@@ -78,7 +78,7 @@ require_once "../connection.php";
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="card">
+                <div class="card" style="background-color:red;color:white;">
                     <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
                     <h4 >Total active orders
                     <?php
