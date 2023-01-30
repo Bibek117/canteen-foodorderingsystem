@@ -1,9 +1,9 @@
 # canteen-foodorderingsystem
 Canteen food order system made with php as backend mysql as database and html,css and js as a frontend
 
-Will be writing documentation and more changes on code after few weeks till then..
-Admin login
-Email - Admin@gamil.com
+
+Admin login<br>
+Email - Admin@gamil.com<br>
 Pw - Admin
 
 Happy hacking!!
