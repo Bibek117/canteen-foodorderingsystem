@@ -19,4 +19,4 @@
          $update = mysqli_query($conn,"UPDATE orders SET order_status=0 where order_id='$order_id'");
     }
     
-        
+?>

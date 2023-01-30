@@ -46,6 +46,7 @@ if (isset($_POST['submit'])) {
         <th class="text-center">Food Name</th>
         <th class="text-center">Food Description</th>
         <th class="text-center">Unit Price</th>
+        <th class="text-center">Food Availability</th>
         <th class="text-center" colspan="2">Action</th>
       </tr>
     </thead>
@@ -62,6 +63,20 @@ if (isset($_POST['submit'])) {
           <td><?= $row["food_name"] ?></td>
           <td><?= $row["food_desc"] ?></td>
           <td><?= $row["food_price"] ?></td>
+          <?php
+          if ($row["availability"] == 0) {
+
+          ?>
+            <td><button class="btn btn-danger" onclick="ChangeFoodAvailabilityStatus('<?= $row['food_id'] ?>')">Add to Today's Menu</button></td>
+          <?php
+
+          } else {
+          ?>
+            <td><button class="btn btn-success" onclick="ChangeFoodAvailabilityStatus('<?= $row['food_id'] ?>')">Remove from Today's Menu</button></td>
+
+          <?php
+          }
+          ?>
           <td><button class="btn btn-primary" style="height:40px" onclick="itemEditForm('<?= $row['food_id'] ?>')">Edit</button></td>
           <td>
             <form action="./admin_php/delete.php" method="post">

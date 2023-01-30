@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <div class="sidebar" id="mySidebar">
 <div class="side-header">
-    <img src="./assets/images/logo.png" width="120" height="120" alt="Swiss Collection"> 
+    <img style="border-radius: 50%;" src="./assets/images/logo.png" width="120" height="120" alt="Swiss Collection"> 
     <h5 style="margin-top:10px;">Hello, <?php echo  $_SESSION['admin_name'];?></h5>
 </div>
 

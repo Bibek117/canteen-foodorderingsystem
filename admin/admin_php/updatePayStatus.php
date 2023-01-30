@@ -17,11 +17,4 @@
     else if($row["payment_status"]==1){
          $update = mysqli_query($conn,"UPDATE orders SET payment_status=0 where order_id='$order_id'");
     }
-        
- 
-    // if($update){
-    //     echo"success";
-    // }
-    // else{
-    //     echo"error";
-    // }
+?>

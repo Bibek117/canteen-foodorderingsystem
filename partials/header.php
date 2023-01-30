@@ -5,7 +5,7 @@
         <li><a <?php if ($_SERVER['SCRIPT_NAME'] == "/canteen-foodorderingsystem/index.php") { ?> class="active" <?php   }  ?> href="./index.php">Home</a></li>
         <?php
         if (isset($_SESSION['user_name']) && $_SESSION['loggedin'] == true) {
-            $sql = "SELECT * FROM orders WHERE user_id = {$_SESSION['user_id']}";
+            $sql = "SELECT * FROM orders WHERE user_id = {$_SESSION['user_id']} && payment_status = 0";
             $result = mysqli_query($conn, $sql);
             $count_ready_orders = 0;
             $count_preparing_status = 0;

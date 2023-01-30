@@ -37,10 +37,7 @@ function ChangeOrderStatus(id) {
     method: "post",
     data: { record: id },
     success: function (data) {
-        $("#message").html("Order Status updated successfully").show();
-        // setTimeout(function () {
-        //   $("#message").hide();
-        // }, 5000);
+        alert("Order Status updated successfully");
       $("form").trigger("reset");
       showOrders();
     },
@@ -53,12 +50,22 @@ function ChangePay(id) {
     method: "post",
     data: { record: id },
     success: function (data) {
-        $("#message").html("Payment Status updated successfully").show();
-        // setTimeout(function () {
-        //   $("#message").hide();
-        // }, 5000);
-    //   $("form").trigger("reset");
+        alert("Payment Status updated successfully");
+      $("form").trigger("reset");
       showOrders();
+    },
+  });
+}
+
+function ChangeFoodAvailabilityStatus(id) {
+  $.ajax({
+    url: "./admin_php/updateFoodAvailabilityStatus.php",
+    method: "post",
+    data: { record: id },
+    success: function (data) {
+        alert("Food Availability Status updated successfully");
+      $("form").trigger("reset");
+      showProductItems();
     },
   });
 }
